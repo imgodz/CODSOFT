@@ -90,6 +90,13 @@ def scissorPress():
     global press 
     press = 3
 
+def resetall():
+    global H_score, C_score
+    H_score = C_score = 0
+    resultLabel.grid_forget()
+    humanScore.configure(text = "Your Score = \n\t" + str(0))
+    compScore.configure(text = "Computer Score = \n\t" + str(0))
+
 titleLabel = Label(root, text = "Let's Play Rock, Paper and Scissors!!")
 titleLabel.grid(row=0, column = 0, columnspan = 3)
 
@@ -116,13 +123,16 @@ humanScore = Label(root, text = "Your Score \n\t" + str(H_score))
 humanScore.grid(row = 1, column = 0)
 
 goButton = Button(root, text = "GO!!", command = genImage)
-goButton.grid(row = 4, column = 1, pady = 20)
+goButton.grid(row = 4, column = 1, rowspan = 2)
 
 rockButton.grid(row = 3, column = 0)
 paperButton.grid(row = 3, column = 1)
 scissorButton.grid(row = 3, column = 2)
 
 quitbutton = Button(root, text = "Close", command = root.quit)
-quitbutton.grid(row = 5, column = 1)
+quitbutton.grid(row = 5, column = 0)
+
+resetbutton = Button(root, text = "Reset", command = resetall)
+resetbutton.grid(row = 5, column = 2)
 
 root.mainloop()
