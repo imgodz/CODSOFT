@@ -116,10 +116,13 @@ humanScore = Label(root, text = "Your Score \n\t" + str(H_score))
 humanScore.grid(row = 1, column = 0)
 
 goButton = Button(root, text = "GO!!", command = genImage)
-goButton.grid(row = 4, column = 1)
+goButton.grid(row = 4, column = 1, pady = 20)
 
 rockButton.grid(row = 3, column = 0)
 paperButton.grid(row = 3, column = 1)
 scissorButton.grid(row = 3, column = 2)
+
+quitbutton = Button(root, text = "Close", command = root.quit)
+quitbutton.grid(row = 5, column = 1)
 
 root.mainloop()
