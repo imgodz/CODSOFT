@@ -4,6 +4,7 @@ import string
 
 root = Tk()
 root.title("Password Generator")
+special_symbols = string.punctuation.replace('"', '').replace("'", '').replace(",", "").replace(".", '')
 
 def onClickGo():
     maxLength = numEntry.get()
@@ -20,7 +21,7 @@ def generate(max):
         resultLabel.configure(state = "readonly")
     else:
         for i in range (0, max):
-            randomLetter = random.choice(string.ascii_letters)
+            randomLetter = random.choice(string.ascii_letters  + string.digits + special_symbols)
             current += randomLetter
         resultLabel.configure(state = "normal")
         resultLabel.delete(0, END)
